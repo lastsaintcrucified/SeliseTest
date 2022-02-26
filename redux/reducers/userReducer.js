@@ -5,10 +5,10 @@ const userRerducer = (state = [], action) => {
     case ADD_USER:
       return [...state, action.payload];
     case REMOVE_USER:
-      return state.filter(cartItem => cartItem !== action.payload);
+      return state.filter(user => user !== action.payload);
     default:
       return state;
   }
 };
 
-export default cartRerducer;
+export default userRerducer;
