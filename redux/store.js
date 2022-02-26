@@ -1,4 +1,5 @@
 import {createStore, combineReducers} from 'redux';
+import userRerducer from './reducers/userReducer';
 
 //reducers
 
