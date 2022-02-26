@@ -202,6 +202,6 @@ const styles = StyleSheet.create({
   },
 });
 const mapDispatchToProps = dispatch => ({
-  addUser: user => dispatch(addCart(user)),
+  addUser: user => dispatch(addUser(user)),
 });
 export default connect(null, mapDispatchToProps)(Login);
