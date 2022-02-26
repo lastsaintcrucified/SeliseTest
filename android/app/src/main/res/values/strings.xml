@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">rnSelise</string>
+    <string name="facebook_app_id">357264092924755</string>
+    <string name="fb_login_protocol_scheme">fb357264092924755</string>
+    <string name="facebook_client_token">537a7aa055666c3d582eea660bdf339c</string>
+</resources>

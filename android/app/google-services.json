@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "61136779716",
+    "project_id": "rntestchat-e2353",
+    "storage_bucket": "rntestchat-e2353.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:61136779716:android:8d240cab2130b816bb4c91",
+        "android_client_info": {
+          "package_name": "com.rnselise"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "61136779716-5180mbqsj6j8j6lsnjc16v8s299d2ec1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rnselise",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "61136779716-4r356ols9mfo9aljj7uu9dmi1qff8mje.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbRM-iHaymCkJtbMxpi0lxPHOIDjv_ARY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "61136779716-4r356ols9mfo9aljj7uu9dmi1qff8mje.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
