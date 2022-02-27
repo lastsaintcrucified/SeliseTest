@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 
 function Chat({navigation, route, users}) {
   const [messages, setMessages] = useState([]);
-  const [partner, setPartner] = useState();
+  const [partner, setPartner] = useState({});
 
   const onSignOut = () => {
     auth()
@@ -17,7 +17,6 @@ function Chat({navigation, route, users}) {
   };
   useEffect(() => {
     setPartner(route.params.user);
-    console.log(partner);
   }, []);
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -36,19 +35,21 @@ function Chat({navigation, route, users}) {
     });
   }, [navigation]);
   useLayoutEffect(() => {
-    const unsubscribe = firestore()
+    let unsubscribe = firestore()
       .collection('chats')
       .where('_id', '==', route.params.user.email)
       .orderBy('createdAt', 'desc')
       .onSnapshot(querySnapshot => {
-        setMessages(
-          querySnapshot.docs.map(doc => ({
-            _id: route.params.user.email,
-            createdAt: doc.data().createdAt.toDate(),
-            text: doc.data().text,
-            user: doc.data().user,
-          })),
-        );
+        querySnapshot
+          ? setMessages(
+              querySnapshot.docs.map(doc => ({
+                _id: route.params.user.email,
+                createdAt: doc.data().createdAt.toDate(),
+                text: doc.data().text,
+                user: doc.data().user,
+              })),
+            )
+          : console.log('hi');
       });
 
     return unsubscribe;
@@ -58,10 +59,10 @@ function Chat({navigation, route, users}) {
     setMessages(previousMessages =>
       GiftedChat.append(previousMessages, messages),
     );
-    const {_id, createdAt, text, user} = messages[0];
+    const {createdAt, text, user} = messages[0];
     console.log(messages);
     firestore().collection('chats').add({
-      _id,
+      _id: route.params.user.email,
       createdAt,
       text,
       user,
