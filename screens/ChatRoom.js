@@ -42,7 +42,7 @@ export default function ChatRoom({navigation}) {
       {users.map((item, index) => (
         <Text
           onPress={() => handleClick(item.data())}
-          key={index}
+          key={Math.random()}
           style={styles.inpt}>
           Email:{item.data().email}
         </Text>

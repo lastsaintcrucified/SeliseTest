@@ -37,15 +37,16 @@ function Chat({navigation, route, users}) {
   useLayoutEffect(() => {
     let unsubscribe = firestore()
       .collection('chats')
-      .where('_id', '==', route.params.user.email)
+      .where('to', '==', route.params.user.email)
       .orderBy('createdAt', 'desc')
       .onSnapshot(querySnapshot => {
         querySnapshot
           ? setMessages(
               querySnapshot.docs.map(doc => ({
-                _id: route.params.user.email,
+                _id: doc.data()._id,
                 createdAt: doc.data().createdAt.toDate(),
                 text: doc.data().text,
+                to: route.params.user.email,
                 user: doc.data().user,
               })),
             )
@@ -59,11 +60,12 @@ function Chat({navigation, route, users}) {
     setMessages(previousMessages =>
       GiftedChat.append(previousMessages, messages),
     );
-    const {createdAt, text, user} = messages[0];
+    const {_id, createdAt, text, user} = messages[0];
     console.log(messages);
     firestore().collection('chats').add({
-      _id: route.params.user.email,
+      _id,
       createdAt,
+      to: route.params.user.email,
       text,
       user,
     });
